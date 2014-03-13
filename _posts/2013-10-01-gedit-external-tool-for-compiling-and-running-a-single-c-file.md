@@ -13,14 +13,14 @@ Today I made a gEdit external tools plugin for myself (and fellow gEdit users, o
 
 The script goes like this-
 
-{% highlight bash %}
+```bash
     #!/bin/sh
     g++ ${GEDIT_CURRENT_DOCUMENT_NAME%} -o ${GEDIT_CURRENT_DOCUMENT_NAME%.*}
     if [ -f ${GEDIT_CURRENT_DOCUMENT_NAME%.*} ];
     then
         gnome-terminal –working-directory=$GEDIT_CURRENT_DOCUMENT_DIR -e "bash -c \"./${GEDIT_CURRENT_DOCUMENT_NAME%.*}; read line;\"" &
     fi
-{% endhighlight %}
+```
 
 You can also find it here <https://gist.github.com/mathbender/6768896>
 

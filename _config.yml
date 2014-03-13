@@ -2,5 +2,5 @@ name: Nur Muhammad Shafiullah
 subname: "All of time and space, anywhere and everywhere"
 markdown: redcarpet
 extensions: [fenced_code_blocks]
-pygments: true
+pygments: false
 excerpt_separator: <!--more-->

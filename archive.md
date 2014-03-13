@@ -3,8 +3,6 @@ layout: blog
 title: Archive
 ---
 
-
-
 <div style="max-width:47em;margin-left:auto;margin-right:auto;">
 	<h1> Blog Posts</h1>
 	<ul>

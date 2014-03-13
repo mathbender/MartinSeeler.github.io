@@ -1,4 +1,4 @@
-MartinSeeler.github.io
+mathbender.github.io
 ======================
 
-The private homepage and blog of Martin Seeler
+The private homepage and blog of Nur Muhammad Shafiullah

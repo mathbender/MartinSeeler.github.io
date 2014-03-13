@@ -1,0 +1,31 @@
+
+ul.post-list {
+  @include no-bullets;
+  padding: 0;
+
+  & > li {
+    border-bottom: 1px solid $quietest-color;
+    margin-bottom: 2*$default-space;
+
+    &:last-child {
+      border-bottom: none;
+      margin: 0;
+    }
+  }
+}
+
+ul.tags {
+  @include inline-block-list;
+  color: $font-color-light;
+  padding: $default-space 0;
+  margin-bottom: $default-space;
+  li.tag {
+    vertical-align: baseline;
+    font-size: 14px;
+    line-height: 14px;
+    border: 1px solid $quieter-color;
+    padding: 4px 8px;
+    margin-right: 8px;
+    @include border-radius(4px);
+  }
+}

@@ -13,7 +13,7 @@ Today I made a gEdit external tools plugin for myself (and fellow gEdit users, o
 
 The script goes like this-
 
-```
+```bash
 #!/bin/sh
 g++ ${GEDIT_CURRENT_DOCUMENT_NAME%} -o ${GEDIT_CURRENT_DOCUMENT_NAME%.*}
 if [ -f ${GEDIT_CURRENT_DOCUMENT_NAME%.*} ];

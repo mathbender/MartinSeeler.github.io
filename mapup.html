@@ -7,25 +7,36 @@
           type="text/javascript"></script>
 </head> 
 <body>
-  <div id="map" style="width: 900px; height: 500px;"></div>
+  <div id="map"></div>
 
   <script type="text/javascript">
-    var locations = [
-      ['Amlan Roy Chowdhury,Union College, New York',42.81720665,-73.92868397],
-      ['Shehzad Noor Taus Priyo,University of British Columbia',49.25219815,-123.2314564],
-      ['Debopriyo Biswas,Princeton University, New York',42.961081,-78.8181669],
-      ['Ariff Ahmed,New York University',40.7292414,-73.9961861],
-      ['Shikhor Shams Wahed,Cornell University',42.4489498,-76.47468305],
-      ['Nadia Abdullah,Tufts University',42.40629165,-71.1197504],
-      ['Raiyan Ishmam,Tufts University',42.40629165,-71.1197504],
-      ['Nur Muhammad Shafiullah,Massachusetts Institute of Technology',42.3583961,-71.09567771],
-      ['Ali Mir,Brown University',41.8268682,-71.40123136],
-      ['Zeba Fariha Khan,UBC!  ',49.25219815,-123.2314564]
-    ];
+    var lolocations = [
+          ['Amlan Roy Chowdhury','Union College','Gettysburg College','St. Lawrence University','42.81720665','-73.92868397','39.8378175','-77.2396084','0.3019701','32.5614314'],
+          ['Shehzad Noor Taus Priyo','University of British Columbia','Kings\' College London','Durham University','49.25219815','-123.2314564','51.5146458','-0.1180145291','54.765013','-1.5833088'],
+          ['Debopriyo Biswas','Princeton University','University of Chicago','','40.34829155','-74.66307996','41.7846322','-87.6007443','0.0'],
+          ['Ariff Ahmed','New York University- NY','University of Toronto','University of British Columbia - Vancouver','40.7292414','-73.9961861','43.66344055','-79.39770211','49.25219815','-123.2314564'],
+          ['Shikhor Shams Wahed','Cornell University','University of Michigan, Ann Arbor','New York University','42.4489498','-76.47468305','42.2942077','-83.71001484','40.7292414','-73.9961861'],
+          ['Nadia Abdullah','Tufts University','','New York University','42.40629165','-71.1197504','42.352394','-71.11674052','40.7292414','-73.9961861'],
+          ['Raiyan Ishmam','Tufts University','','','42.40629165','-71.1197504','0.0','0.0'],
+          ['Nur Muhammad Shafiullah','Massachusetts Institute of Technology','Stanford University','Princeton University','42.3583961','-71.09567771','37.431089','-122.1693008','40.34829155','-74.66307996'],
+          ['Ali Mir','Brown University','','','41.8268682','-71.40123136','0.0','0.0'],
+          ['Zeba Fariha Khan','University of British Columbia','University of Toronto','','49.25219815','-123.2314564','43.66344055','-79.39770211','0.0']
+      ];
+      var locations = [];
+      for (var i = lolocations.length - 1; i >= 0; i--) {
+        for (var j = 0; j < 3; j++) {
+          var lol = [];
+          if ( lolocations[i][j+1] != '' ) {
+            lol.splice(0, 0, lolocations[i][0], lolocations[i][j+1], parseFloat(lolocations[i][ 4 + j*2 ]), parseFloat(lolocations[i][ 4 + j*2 +1]));
+            locations.splice(0,0,lol);
+          };
+        };
+      };
+
     for (var i = locations.length - 1; i >= 0; i--) {
       for (var j = locations.length - 1; j > i; j--) {
-        if ( locations[i][1] == locations[j][1] && locations[i][2] == locations[j][2]) {
-          locations[j][0] = locations[j][0].concat( "; ".concat( locations[i][0] ));
+        if ( locations[i][2] == locations[j][2] && locations[i][3] == locations[j][3]) {
+          locations[j][0] = locations[j][0].concat( "</br>".concat( locations[i][0] ));
         };
       };
     };
@@ -42,17 +53,26 @@
 
     for (i = 0; i < locations.length; i++) {  
       marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        position: new google.maps.LatLng(locations[i][2], locations[i][3]),
         map: map
       });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent(locations[i][0]);
+          infowindow.setContent(locations[i][1].concat( ":</br>".concat(locations[i][0])));
           infowindow.open(map, marker);
         }
       })(marker, i));
     }
   </script>
+  <style type="text/css">
+    #map {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;    
+  }
+  </style>
 </body>
 </html>

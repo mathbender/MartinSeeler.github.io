@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Google Maps Multiple Markers</title> 
+  <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script>
+</head> 
+<body>
+  <div id="map" style="width: 900px; height: 500px;"></div>
+
+  <script type="text/javascript">
+    var locations = [
+      ['Amlan Roy Chowdhury,Union College, New York',42.81720665,-73.92868397],
+      ['Shehzad Noor Taus Priyo,University of British Columbia',49.25219815,-123.2314564],
+      ['Debopriyo Biswas,Princeton University, New York',42.961081,-78.8181669],
+      ['Ariff Ahmed,New York University',40.7292414,-73.9961861],
+      ['Shikhor Shams Wahed,Cornell University',42.4489498,-76.47468305],
+      ['Nadia Abdullah,Tufts University',42.40629165,-71.1197504],
+      ['Raiyan Ishmam,Tufts University',42.40629165,-71.1197504],
+      ['Nur Muhammad Shafiullah,Massachusetts Institute of Technology',42.3583961,-71.09567771],
+      ['Ali Mir,Brown University',41.8268682,-71.40123136],
+      ['Zeba Fariha Khan,UBC!  ',49.25219815,-123.2314564]
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: new google.maps.LatLng(39.909736, -98.522109),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+</body>
+</html>

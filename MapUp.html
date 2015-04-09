@@ -11,7 +11,7 @@
 
   <script type="text/javascript">
     var lolocations = [
-          ['Amlan Roy Chowdhury','Union College','Gettysburg College','St. Lawrence University','42.81720665','-73.92868397','39.8378175','-77.2396084','0.3019701','32.5614314'],
+          ['Amlan Roy Chowdhury','Union College','Gettysburg College','St. Lawrence University','42.81720665','-73.92868397','39.8378175','-77.2396084','44.5928','-75.1603'],
           ['Shehzad Noor Taus Priyo','University of British Columbia','Kings\' College London','Durham University','49.25219815','-123.2314564','51.5146458','-0.1180145291','54.765013','-1.5833088'],
           ['Debopriyo Biswas','Princeton University','University of Chicago','','40.34829155','-74.66307996','41.7846322','-87.6007443','0.0'],
           ['Ariff Ahmed','New York University- NY','University of Toronto','University of British Columbia - Vancouver','40.7292414','-73.9961861','43.66344055','-79.39770211','49.25219815','-123.2314564'],
@@ -20,7 +20,17 @@
           ['Raiyan Ishmam','Tufts University','','','42.40629165','-71.1197504','0.0','0.0'],
           ['Nur Muhammad Shafiullah','Massachusetts Institute of Technology','Stanford University','Princeton University','42.3583961','-71.09567771','37.431089','-122.1693008','40.34829155','-74.66307996'],
           ['Ali Mir','Brown University','','','41.8268682','-71.40123136','0.0','0.0'],
-          ['Zeba Fariha Khan','University of British Columbia','University of Toronto','','49.25219815','-123.2314564','43.66344055','-79.39770211','0.0']
+          ['Zeba Fariha Khan','University of British Columbia','University of Toronto','','49.25219815','-123.2314564','43.66344055','-79.39770211','0.0'],
+          ['Saraf Nawar','New York University','Hong Kong University of Science and Technology','Monash University','40.7292414','-73.9961861','22.3358031','114.265904','-37.8774134','145.0449825'],
+          ['Saadman Islam','New York University','Clark University','Ithaca College','40.7292414','-73.9961861','42.2510477','-71.8231517','42.41973415','-76.49812721'],
+          ['Subarno Hossain Turja','Bucknell University','Clark University','Temple University','40.95472345','-76.88725445','42.2510477','-71.8231517','39.9546285','-75.15349027'],
+          ['Syed Erfan Siddique','University of Washington',' Seattle','University of British Columbia (UBC)','','47.65508485','-122.3042352','49.25839375','-123.2465815','0.0'],
+          ['Anupam Debashis Roy','Howard University','American University','George Mason University','38.9216713','-77.01955816','38.93775105','-77.08948226','38.8849403','-77.1009011'],
+          ['Saiti Srabonti Halder','Columbia University','','','40.8069705','-73.96293293','0.0','0.0'],
+          ['Ahmed Ibrahim','Goucher College','University of Miami','','39.408995','-76.59287079','25.7195457','-80.2786619','0.0'],
+          ['Shah Habibur Rahman','Amherst College','Northwestern University','Rice University','42.37289','-72.518814','42.0550773','-87.6758174','29.71679145','-95.40478098'],
+          ['Siena Kabir','Cornell University','','','42.4489498','-76.47468305','0.0','0.0'],
+          ['Nur Muhammad Shafiullah','Columbia University','University of Pennsylvania','','40.8069705','-73.96293293','39.9500','-75.1900','0.0']
       ];
       var locations = [];
       for (var i = lolocations.length - 1; i >= 0; i--) {
@@ -54,6 +64,7 @@
     for (i = 0; i < locations.length; i++) {  
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][2], locations[i][3]),
+        disableDefaultUI: true,
         map: map
       });
 

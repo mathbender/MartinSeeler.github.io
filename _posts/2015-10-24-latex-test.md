@@ -1,7 +1,7 @@
 ---
-date = 2015-10-24 11:16:20
-description = testing latex
-title = Latex Test
+date: 2015-10-24 11:16:20
+description: testing latex
+title: Latex Test
 
 ---
 

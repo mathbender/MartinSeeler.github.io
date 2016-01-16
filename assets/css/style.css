@@ -282,6 +282,9 @@ blockquote {
 	padding-left: 15px;
 	border-left: 3px solid #eee;
 }
+blockquote.goodreads{
+	line-height: 1.5;
+}
 
 hr {
 	display: block;

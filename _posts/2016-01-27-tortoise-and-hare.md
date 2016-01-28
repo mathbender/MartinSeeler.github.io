@@ -13,7 +13,7 @@ title: The Tortoise and The Hare
 <div>`$$x_0, x_1 = f(x_0), x_2 = f(x_1), \cdots, x_{i+1} = f(x_i), \cdots$$`</div>
 is bound to repeat by pigeonhole principle. How do you find out the cycle, i.e. where the sequence starts to loop and how long is the cycle?
 
-In case of problem 2, there would be two values `$i \neq j$` such that `$x_i = x_j`. From that point on, the sequence would continue to repeat, as `$x_{i+1} = f(x_i) = f(x_j) = x_{j+1}$` and so on. There, the cycle detection is finding the minimal `$i, j$`, given the `$f, x_0$`.
+In case of problem 2, there would be two values `$i \neq j$` such that `$x_i = x_j$`. From that point on, the sequence would continue to repeat, as `$x_{i+1} = f(x_i) = f(x_j) = x_{j+1}$` and so on. There, the cycle detection is finding the minimal `$i, j$`, given the `$f, x_0$`.
 
 Also note that, in both cases, if we iterate over the linked list/sequence, we can go on to infinity, as a loop exists.
 

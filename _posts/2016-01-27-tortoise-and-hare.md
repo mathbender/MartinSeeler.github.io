@@ -66,4 +66,60 @@ Finally, for the third part, we need to find `$M$` starting from `$x_N$`. This s
 
 Combining this three steps, we can finally say this algorithm has **complexity `$O(N+M)$`** where `$N$` is the point where the loop starts and `$M$` is the period of the loop.
 
+### The Implementation
+
+```python
+def floyd(f, x0):
+    # Main phase of algorithm: finding a repetition x_i = x_2i
+    # The hare moves twice as quickly as the tortoise and
+    # the distance between them increases by 1 at each step.
+    # Eventually they will both be inside the cycle and then,
+    # at some point, the distance between them will be
+    # divisible by the period M.
+    tortoise = f(x0) # f(x0) is the element/node next to x0.
+    hare = f(f(x0))
+    while tortoise != hare:
+        tortoise = f(tortoise)
+        hare = f(f(hare))
+  
+    # At this point the tortoise position, i, which is also equal
+    # to the distance between hare and tortoise, is divisible by
+    # the period M. So hare moving in circle one step at a time, 
+    # and tortoise (reset to x0) moving towards the circle, will 
+    # intersect at the beginning of the circle. Because the 
+    # distance between them is constant at 2i, a multiple of M,
+    # they will agree as soon as the tortoise reaches index N.
+
+    # Find the position N of first repetition.    
+    N = 0
+    tortoise = x0
+    while tortoise != hare:
+        tortoise = f(tortoise)
+        hare = f(hare)   # Hare and tortoise move at same speed
+        N += 1
+ 
+    # Find the length of the shortest cycle starting from x_N
+    # The hare moves one step at a time while tortoise is still.
+    # lam is incremented until M is found.
+    M = 1
+    hare = f(tortoise)
+    while tortoise != hare:
+        hare = f(hare)
+        M += 1
+ 
+    return M, N
+```
+
+
 ******
+
+### Extras
+
+This algorithm is attributed to [Robert W. Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd) by Donald Knuth, though this was never publised by Floyd in a paper. Probably this was a folk algorithm, not invented by anyone specific. There are several uses of this algorithm other than the obvious use of this to find the cycle length, including the [Rho algorithm](https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm) to find the prime factorization of a number within approximately $O(N^{\frac 14})$ time.
+
+### Further Reading
+
+1. [Wikipedia - Cycle detection](https://en.wikipedia.org/wiki/Cycle_detection)
+2. [Wikipedia - Tortoise and Hare](https://en.wikipedia.org/wiki/Cycle_detection#Tortoise_and_hare)
+3. [Floyd's cycle detection algorithm - Siafoo](http://www.siafoo.net/algorithm/10)
+4. [Knuth, Donald E.](https://en.wikipedia.org/wiki/Donald_Knuth) (1969), The Art of Computer Programming, vol. II: Seminumerical Algorithms, Addison-Wesley, p. 7, exercises 6 and 7

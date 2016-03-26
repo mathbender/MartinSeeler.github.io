@@ -43,7 +43,7 @@ Now, if, at any moment, if we know hare and tortoise are pointing at the same va
 1. $i > N$
 2. $M | i$
 
-In general, we now know that $x_{N} = x_{N + i}$. So, we can find the value of $N$ by just iterating through the sequence starting from `$x_0$` and noting the first value where `$x_{k} = x_{k+i}$`. From there, we will know `$N = k$`.
+In general, we now know that `$x_{N} = x_{N + i}$`. So, we can find the value of `$N$` by just iterating through the sequence starting from `$x_0$` and noting the first value where `$x_{k} = x_{k+i}$`. From there, we will know `$N = k$`.
 
 Now, we can easily find `$M$` too, because `$M$` is the minimal natural number for which `$x_{N} = x_{N+i}$`. So, we can start iterating from `$x_{N}$` and find the minimal `$i$` such that `$x_{N} = x_{N+i}$`, which would be `$M$`.
 
